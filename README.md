@@ -10,7 +10,28 @@ Resumo. Na era digital, a crescente complexidade dos sistemas informáticos e a 
 
 # Estrutura do readme.md
 
-Apresenta a estrutura do readme.md, descrevendo como o repositório está organizado.
+1. Título do Projeto
+2. Resumo e Abstract
+3. Estrutura do README
+4. Selos Considerados
+5. Informações Básicas
+    - Ambiente de desenvolvimento
+    - Requisitos de hardware
+    - Observações sobre desempenho
+6. Dependências
+7. Preocupações com Segurança
+8. Instalação
+    - Instalação do Python
+    - Criação e ativação do ambiente virtual
+    - Clonagem do repositório
+    - Instalação de dependências
+    - Instalação e configuração do Ollama
+9. Teste Mínimo
+    - Execução do Jupyter Notebook
+    - Passo a passo para rodar o exemplo prático
+    - Observações sobre datasets e possíveis erros
+10. Experimentos
+11. Licença
 
 # Selos Considerados
 
@@ -22,7 +43,7 @@ Este repositório contém os artefatos necessários para a execução e replica�
 Abaixo estão listados os requisitos mínimos de hardware e software, bem como informações sobre o ambiente de desenvolvimento.
 
 ### Ambiente de desenvolvimento
-- Sistema Operacional: Ubuntu 20.04 LTS (recomendado)
+- Sistema Operacional: Ubuntu 24.04 LTS (recomendado)
 - Recomenda-se a utilização de um ambiente Linux para melhor compatibilidade.
 
 ### Requisitos de hardware mínimos
@@ -152,6 +173,4 @@ Caso o processo para a reprodução de todos os experimentos não seja possível
 ## Reivindicações #Y
 
 # LICENSE
-
-Apresente a licença.
-
+Esse projeto está licensiado sob a licensa GNU v3.0 conforme o arquivo de licensa: [LICENSE](https://github.com/CGabriel22/forense-rag-logs/blob/main/LICENSE)
