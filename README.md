@@ -145,7 +145,7 @@ source forense-rag-logs/bin/activate
 
 2. Acesse o diretório do projeto:
 ```bash
-cd forense-rag-logs
+cd forense-rag-logs/src
 ```
 
 3. Execute o Jupyter Notebook:
