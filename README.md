@@ -129,7 +129,10 @@ Acesse https://ollama.com/download e siga as instruções para seu sistema
 
 Após instalado, execute o comando abaixo para baixar o modelo LLaMA 3 com 3B de parâmetros:
 ```bash
-ollama run llama3
+# Instala o modelo principal llama3.2
+ollama run llama3.2
+# Instala o modelo auxiliar gemma2:2b
+ollama run gemma2:2b
 ```
 <b>Importante:</b> A primeira execução fará o download do modelo e pode levar alguns minutos.
 
