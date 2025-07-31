@@ -169,14 +169,57 @@ Ao final do notebook, há uma célula com um exemplo completo, utilizando os dad
 
 # Experimentos
 
-Esta seção deve descrever um passo a passo para a execução e obtenção dos resultados do artigo. Permitindo que os revisores consigam alcançar as reivindicações apresentadas no artigo.
-Cada reivindicações deve ser apresentada em uma subseção, com detalhes de arquivos de configurações a serem alterados, comandos a serem executados, flags a serem utilizadas, tempo esperado de execução, expectativa de recursos a serem utilizados como 1GB RAM/Disk e resultado esperado.
+## 🧪 Experimentos
 
-Caso o processo para a reprodução de todos os experimentos não seja possível em tempo viável. Os autores devem escolher as principais reivindicações apresentadas no artigo e apresentar o respectivo processo para reprodução.
+Esta seção descreve os experimentos realizados para validar as principais reivindicações apresentadas no artigo. As abordagens aqui descritas foram implementadas e avaliadas de forma sistemática, com anotações manuais dos resultados, visando a verificar o impacto do uso de compressão contextual no desempenho de um sistema RAG aplicado à análise de logs de eventos.
 
-## Reivindicações #X
+### 🔹 Reivindicação #1: Geração estruturada de documentos a partir de logs
 
-## Reivindicações #Y
+Para estruturar os dados de entrada, desenvolvemos uma função de pré-processamento capaz de transformar cada linha do dataset de logs em um objeto `Document`, contendo tanto o conteúdo em texto natural quanto metadados relevantes para posterior recuperação. Essa etapa considerou campos como `MachineName`, `EntryType` e `TimeGenerated`, com tratamento de exceções e logging para eventuais inconsistências.  
+
+Essa estrutura permitiu que o pipeline de processamento subsequente operasse sobre um conjunto consistente de documentos com granularidade controlada.
+
+### 🔹 Reivindicação #2: Embedding, armazenamento e recuperação dos logs
+
+Os documentos foram submetidos a uma etapa de segmentação (splitting) seguida de vetorização com embeddings. O armazenamento foi realizado em uma base vetorial local. Utilizamos um `retriever` composto por diferentes estratégias (ensemble) para maximizar a cobertura de recuperação.
+
+A experimentação dessa etapa consistiu em consultas simples com perguntas específicas, como *"Qual máquina gerou o alerta de segurança?"*, e análise qualitativa das respostas retornadas, verificando a relevância do contexto selecionado.
+
+### 🔹 Reivindicação #3: Compressão contextual com LLM
+
+Uma das principais contribuições deste trabalho foi a implementação de uma compressão contextual baseada em LLMs, utilizando o modelo `gemma2:2b` via Ollama. Foi desenvolvido um template de prompt com foco na extração de informações relevantes em cenários de logs de segurança, com o seguinte formato:
+
+```
+Você é um assistente especialista em análise de logs de eventos de segurança. 
+Dado o seguinte evento registrado no sistema, extraia as informações mais relevantes que respondam à pergunta.
+
+Pergunta: {question}
+
+Registro de Evento:
+{context}
+
+Extração relevante:
+```
+
+O compressor foi integrado ao pipeline através do `ContextualCompressionRetriever`, com o objetivo de reduzir a quantidade de informação irrelevante entregue ao modelo gerador.  
+
+Os experimentos foram conduzidos de forma controlada: para cada pergunta, foi registrada a resposta com e sem compressão. As respostas foram então avaliadas manualmente quanto à **precisão**, **concisão** e **clareza**, e categorizadas como satisfatórias ou não.
+
+Ao final da recuperação e compressão, a query final é executada sobre o contexto reduzido.
+
+---
+
+### ⚙️ Recursos Utilizados
+
+- **Modelo LLM:** llama3.2, gemma2:2b (via Ollama local)
+- **Dataset:** Logs sintéticos simulando eventos de segurança
+- **Ambiente de execução:**  
+  - CPU, 1GB RAM  
+  - Execução local (sem GPU)
+  - Tempo médio por execução completa: **~15 minutos**
+- **Ferramentas:** pandas, langchain, FAISS/Chroma, Ollama
+
+---
 
 # LICENSE
 Esse projeto está licensiado sob a licensa GNU v3.0 conforme o arquivo de licensa: [LICENSE](https://github.com/CGabriel22/forense-rag-logs/blob/main/LICENSE)
