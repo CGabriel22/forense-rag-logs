@@ -152,9 +152,11 @@ cd forense-rag-logs/src
 ```bash
 jupyter notebook
 ```
+<b>Nota:</b> Pode ser necessário instalar o jupyter lab antes pelo comando: `pip3 install jupyterlab`
 
 4. Execute as células sequencialmente.
 Ao final do notebook, há uma célula com um exemplo completo, utilizando os dados disponíveis no repositório para demonstrar o funcionamento do pipeline de análise com RAG.
+<b>Nota:</b> É sugerido utilizar o vscode para melhor experiência com o notebook
 
 ### Observações:
 - Todos os datasets utilizados nos testes estão incluídos no repositório(eventlog.csv = 158k logs).
