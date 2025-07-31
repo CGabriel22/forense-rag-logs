@@ -134,6 +134,7 @@ ollama run llama3.2
 # Instala o modelo auxiliar gemma2:2b
 ollama run gemma2:2b
 ```
+Após instalado, digite /bye para sair do modelo, instale o próximo e repita o comando.
 <b>Importante:</b> A primeira execução fará o download do modelo e pode levar alguns minutos.
 
 # Teste mínimo
