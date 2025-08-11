@@ -221,5 +221,21 @@ Ao final da recuperação e compressão, a query final é executada sobre o cont
 
 ---
 
+### Exemplos de execução (Imagens)
+
+![raciocínio](images/raciocinio.png)
+Esta imagem apresenta um recorte do raciocínio desenvolvido ao longo deste trabalho, resultante do uso de contextual compression com o modelo gemma2:2b. O objetivo foi extrair informações relevantes e organizá-las de forma comprimida, porém mais clara e eficiente.
+
+![Exemplo 1](images/exemplo1.png)
+Exemplo de aplicação do trabalho, no qual é possível visualizar a pergunta sendo respondida na segunda célula de saída.
+
+![Exemplo 2](images/exemplo2.png)
+Outro exemplo de aplicação, em que é necessário responder a duas perguntas e correlacionar dois logs para identificar o erro. Novamente, a resposta pode ser visualizada na segunda célula de saída.
+
+![Exemplo 3](images/exemplo3.png)
+Terceiro exemplo, no qual a resposta, mais uma vez, pode ser visualizada na segunda célula de saída.
+
+---
+
 # LICENSE
 Esse projeto está licensiado sob a licensa GNU v3.0 conforme o arquivo de licensa: [LICENSE](https://github.com/CGabriel22/forense-rag-logs/blob/main/LICENSE)
