@@ -31,7 +31,8 @@ Resumo. Na era digital, a crescente complexidade dos sistemas informáticos e a 
     - Passo a passo para rodar o exemplo prático
     - Observações sobre datasets e possíveis erros
 10. Experimentos
-11. Licença
+11. Exemplos de execução (Imagens)
+12. Licença
 
 # Selos Considerados
 
@@ -221,7 +222,7 @@ Ao final da recuperação e compressão, a query final é executada sobre o cont
 
 ---
 
-### Exemplos de execução (Imagens)
+## Exemplos de execução (Imagens)
 
 ![raciocínio](images/raciocinio.png)
 Esta imagem apresenta um recorte do raciocínio desenvolvido ao longo deste trabalho, resultante do uso de contextual compression com o modelo gemma2:2b. O objetivo foi extrair informações relevantes e organizá-las de forma comprimida, porém mais clara e eficiente.
