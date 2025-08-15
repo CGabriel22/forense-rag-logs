@@ -106,7 +106,7 @@ sudo apt install python3 python3-venv python3-pip
 ### 2. Criar e ativar o ambiente virtual
 ```bash
 # Criar ambiente virtual
-python3 -m venv forense-rag-logs-venv
+python3.10 -m venv forense-rag-logs-venv
 cd forense-rag-logs-venv
 
 # Ativar ambiente virtual
@@ -122,6 +122,8 @@ cd forense-rag-logs
 ### 4. Instalar as dependências
 ```bash
 pip3 install -r requirements/requirements_lang_chain.txt
+# Instalar também o jupyter notebook
+pip3 install jupyter
 ```
 
 ### 5. Instalar e configurar o Ollama
@@ -150,7 +152,7 @@ source forense-rag-logs/bin/activate
 
 2. Acesse o diretório do projeto:
 ```bash
-cd forense-rag-logs/src
+cd src/.
 ```
 
 3. Execute o Jupyter Notebook:
