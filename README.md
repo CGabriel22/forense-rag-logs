@@ -54,6 +54,9 @@ Abaixo estão listados os requisitos mínimos de hardware e software, bem como i
 - Armazenamento: 5 GB de espaço livre em disco
 - Conexão com a internet: Banda larga (necessária apenas durante o download e configuração dos modelos e do sistema)
 
+### Tempo estimado de execução
+- 5 minutos
+
 ### Observações
 - O uso de GPU é recomendado para acelerar o processamento dos modelos de linguagem.
 - Os testes e experimentos foram conduzidos utilizando uma configuração com os requisitos acima e apresentaram desempenho satisfatório.
