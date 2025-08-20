@@ -20,19 +20,20 @@ Resumo. Na era digital, a crescente complexidade dos sistemas informáticos e a 
     - Observações sobre desempenho
 6. Dependências
 7. Preocupações com Segurança
-8. Instalação
+8. Estrutura de pastas, scripts e datasets
+9. Instalação
     - Instalação do Python
     - Criação e ativação do ambiente virtual
     - Clonagem do repositório
     - Instalação de dependências
     - Instalação e configuração do Ollama
-9. Teste Mínimo
+10. Teste Mínimo
     - Execução do Jupyter Notebook
     - Passo a passo para rodar o exemplo prático
     - Observações sobre datasets e possíveis erros
-10. Experimentos
-11. Exemplos de execução (Imagens)
-12. Licença
+11. Experimentos
+12. Exemplos de execução (Imagens)
+13. Licença
 
 # Selos Considerados
 
@@ -95,15 +96,72 @@ ollama run llama3
 
 Não há preocupações conhecidas que possam prejudicar o ambiente dos avaliadores
 
+# Estrutura de pastas, scripts e datasets
+
+## 📁 Organização das Pastas
+
+**`src/`** - O coração do projeto, onde ficam todos os códigos e dados:
+- **`datasets/`** - Contém os logs de eventos em diferentes tamanhos para testes e análises. Você encontrará desde arquivos pequenos para testes rápidos até bases maiores para análises mais robustas
+- **`notebooks`** - Scripts Jupyter com as implementações principais
+
+**`images/`** - Capturas de tela e diagramas que ilustram o funcionamento do sistema
+
+**`requirements/`** - Dependências necessárias para rodar o projeto
+
+## 🔬 Scripts Principais
+
+**`simple_rag.ipynb`** - Uma implementação direta e funcional do sistema RAG. É o ponto de partida inicial e pode ser utilizado para fins comparativos.
+
+**`proposed_structure.ipynb`** - Estrutura proposta no artigo, mais robusta e com diversas técnicas impregadas tornando possível a análise forense dos logs utilizando RAG.
+
+## 📊 Datasets Disponíveis
+
+Os arquivos CSV contêm logs reais de eventos do Windows, incluindo informações como:
+- Mensagens de sistema e erros
+- Timestamps detalhados
+- Informações geográficas (país, região, cidade)
+- Dados de rede (ISP, timezone)
+
+Os datasets variam em tamanho para diferentes necessidades:
+- **event_log_base_menor.csv**: Para testes rápidos e desenvolvimento
+- **event_log_base_medio.csv**: Para validações intermediárias
+- **eventlog.csv**: Para análises completas e demonstrações robustas
+
+
 # Instalação
 A seguir, apresentamos o passo a passo necessário para instalar e executar a aplicação localmente.
 
 ### 1. Instalar o Python 3
 Certifique-se de que o Python 3 esteja instalado. Recomenda-se a versão 3.10.
-No Ubuntu, você pode instalar com:
+
+**Ubuntu/Debian:**
 ```bash
 sudo apt update
 sudo apt install python3 python3-venv python3-pip
+```
+
+**Fedora:**
+```bash
+sudo dnf update
+sudo dnf install python3 python3-venv python3-pip
+```
+
+**CentOS/RHEL:**
+```bash
+sudo yum update
+sudo yum install python3 python3-venv python3-pip
+```
+
+**Arch Linux:**
+```bash
+sudo pacman -Syu
+sudo pacman -S python python-pip
+```
+
+**Alpine Linux:**
+```bash
+sudo apk update
+sudo apk add python3 py3-pip py3-venv
 ```
 
 ### 2. Criar e ativar o ambiente virtual
@@ -148,23 +206,18 @@ Após instalado, digite /bye para sair do modelo, instale o próximo e repita o 
 Para facilitar a avaliação do artefato, disponibilizamos um notebook Jupyter com toda a estrutura de execução e um exemplo funcional ao final do arquivo.
 
 ### Passo a passo para execução:
-1. Ative o ambiente virtual, caso ainda não esteja ativo:
-```bash
-source forense-rag-logs/bin/activate
-```
-
-2. Acesse o diretório do projeto:
+1. Acesse o diretório do projeto:
 ```bash
 cd src/.
 ```
 
-3. Execute o Jupyter Notebook:
+2. Execute o Jupyter Notebook:
 ```bash
 jupyter notebook
 ```
 <b>Nota:</b> Pode ser necessário instalar o jupyter lab antes pelo comando: `pip3 install jupyterlab`
 
-4. Execute as células sequencialmente.
+3. Execute as células sequencialmente.
 Ao final do notebook, há uma célula com um exemplo completo, utilizando os dados disponíveis no repositório para demonstrar o funcionamento do pipeline de análise com RAG.
 <b>Nota:</b> É sugerido utilizar o vscode para melhor experiência com o notebook
 
